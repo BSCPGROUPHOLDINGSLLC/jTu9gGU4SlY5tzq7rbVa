@@ -1,2 +1,2 @@
-# jTu9gGU4SlY5tzq7rbVa
-General Info
+# Primers
+- for ease of your references, enjoy!
