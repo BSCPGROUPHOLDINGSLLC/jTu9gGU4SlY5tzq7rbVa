@@ -1,0 +1,69 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import random
+
+i = 300; y = 0; coinflipsAll = []
+while y < i:
+    coinflipsAll.append(random.randint(0,1))
+    y+=1
+
+iQ = 1; _coinFourHeads = []; lockFourHeads = [];
+IQ = 1; _coinTwelveHeads = []; lockTwelveHeads = [];
+for coins in coinflipsAll:
+    _coinFourHeads.append(coins)
+    _coinTwelveHeads.append(coins)
+    if iQ%4 == 0:
+        lockFourHeads.append(_coinFourHeads)
+        _coinFourHeads = []
+    if IQ%12 == 0:
+        lockTwelveHeads.append(_coinTwelveHeads)
+        _coinTwelveHeads = []
+    iQ+=1; IQ+=1;
+
+id4=0; idx4=0; iq4=[];
+for hist in lockFourHeads:
+    i = 0;
+    while i < 4:
+        if hist[i] == 1:
+            idx4 +=1
+        i+=1
+    iq4.append([id4, float(idx4/4)])
+    id4+=1; idx4=0;
+
+venteVenteVente = 0; id12=0; idx12 = 0; iq12 = []; 
+idx4=0;IQ444 = [];
+for cumulative in lockTwelveHeads:
+    i = 0;
+    while i < 12:
+        if cumulative[i] == 1:
+            idx12 +=1
+        i+=1;venteVenteVente+=1;
+    iq12.append(float(idx12/venteVenteVente))
+    IQ444.append(iq4[idx4][1])
+    id12+=1;idx4+=1;
+
+# CODE TO GENERATE THE HISTOGRAM
+# # A SERIES OF FOUR TOSSES AND THE PROPORTION OF HEADS THEREIN.
+# # # 75 INSTANCES PLOTTED IN THIS FUNCTION.
+for info in iq4:
+    foxForceFour  = plt.bar(info[0],info[1])
+    foxForceFour  = plt.xlabel('HISTOGRAM: Four Toss Analysis (75 SERIES-OF-FOUR SYSTEM)')
+    foxForceFour  = plt.ylabel('Proportion of Heads')
+plt.show()
+
+# # WHAT I DID HERE IS PLOT THE CUMULATIVE TOSSES AND HISTOGRAM SERIES AS A DERIVATIVE.
+# > NOW WE ALSO CAN SEE THE EFFECT ON THE RATE OF CHANGE ON THE CUMULATIVE INTERVALS OF 12.
+# # A FUNCTION OF THE NON CUMULATIVE FORCE - code name `foxForceFour`. the dotted line.
+# # # HISTOGRAM: Four Toss Analysis and Proportion of HEADS
+# # # IT'S FUNNY BECAUSE THE DOTTED LINE KEEPS RUNNING AWAY....
+# # # AND THE CUMULATIVE FUNCTION IN RED IS SOLID, AND TELLS the dot: YOU NEED TO KETCHUP.
+# # # A LINEAR FORMATION TOWARDS THE BETTER HALF OF ~0.50 >> WHICH IS WHY I MADE THEM RED.
+# # # WHICH IS THE PROBABILITY OF TAILS AT EACH ITERATION, OR HEADS  - - - NO MATTE WHUUT.
+y1 = np.array(iq12)
+y2 = np.array(IQ444)
+plt.plot(y1, c = 'red')
+plt.plot(y2, ls = ':', c = 'red')
+plt.xlabel('Number of Tosses (25 INTERVALS OF 12) A TOTAL OF 300 TOSSES')
+plt.ylabel('Proportion of Heads')
+plt.show()
