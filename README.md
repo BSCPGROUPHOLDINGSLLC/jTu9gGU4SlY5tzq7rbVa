@@ -1,1 +1,1 @@
-# Beautiful Marko Chains
+# Beautiful Markov Chains
