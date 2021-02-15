@@ -1,1 +1,1 @@
-# Beautiful Markov Chains
+# Markov Chain Interfaces
